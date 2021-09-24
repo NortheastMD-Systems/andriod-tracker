@@ -45,7 +45,7 @@ router.post('/logs/checkout', async (req,res) => {
         })
 })
 
-router.post('/logs/checkin',(req,res) =>{
+router.put('/logs/checkin',(req,res) =>{
     const time = timeStamp
     const id = req.body.id
     const changes ={
