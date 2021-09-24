@@ -26,15 +26,15 @@ router.get('/logs/all', (req,res) => {
 })
 
 router.post('/logs/checkout', async (req,res) => {
-    const uName = req.body.userName
+    const userid = req.body.userid
     const sku = req.body.sku
-    console.log(sku,uName)
+    console.log(sku,userid)
     const scanId = await sDb.getBySku(sku)
-    const userId = await uDb.getByName(uName)
+    const userId = await uDb.getById(userid)
     const logs = {
         time_out:timeStamp,
         scanner_id:scanId.id,
-        user_id:userId[0].id
+        user_id:userId.id
     }
     db.checkOut(logs)
         .then(logs =>{
