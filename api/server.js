@@ -2,6 +2,7 @@
 const express = require('express')
 const usersRouter = require('../routes/usersRouter')
 const scannerRouter = require('../routes/scannerRouter')
+const logsRouter = require('../routes/logsRouter')
 const helmet = require('helmet')
 const cors = require('cors')
 const server = express()
@@ -19,5 +20,6 @@ function logger(req, res, next) {
   };
   server.use('/db',usersRouter)
   server.use('/db',scannerRouter)
+  server.use('/db',logsRouter)
   
 module.exports = server

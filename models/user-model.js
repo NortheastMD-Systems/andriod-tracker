@@ -15,7 +15,7 @@ function getAll(){
 
 function getById(userid){
     return db('users as u')
-           .select('u.name','u.userid')
+           .select('u.id','u.name','u.userid')
            .where({userid})
            .first()
            .then(users => users)
@@ -36,6 +36,6 @@ function remove(userid){
 
 function getByName(name){
     return db('users as u')
-            .select('u.name','u.userid')
+            .select('u.id','u.name','u.userid')
             .where({name})
 }

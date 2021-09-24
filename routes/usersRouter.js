@@ -36,7 +36,10 @@ router.post('/users/byid',(req,res) => {
 router.post('/users/add',(req,res) => {
     const name = req.body.name
     const id = req.body.userid
-  
+  const user = {
+      name:name,
+      userid:id
+  }
 
     db.add(user)
         .then(user => {
