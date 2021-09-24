@@ -1,6 +1,7 @@
    
 const express = require('express')
-const DbRouter = require('../routes/dbRouter')
+const usersRouter = require('../routes/usersRouter')
+const scannerRouter = require('../routes/scannerRouter')
 const helmet = require('helmet')
 const cors = require('cors')
 const server = express()
@@ -16,5 +17,7 @@ function logger(req, res, next) {
     console.log(`a ${method} request to ${url} was made at ${time} o'clock.`)
     next()
   };
-  server.use('/db',DbRouter)
+  server.use('/db',usersRouter)
+  server.use('/db',scannerRouter)
+  
 module.exports = server

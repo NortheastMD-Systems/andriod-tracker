@@ -24,6 +24,7 @@ function getById(userid){
 function add(user){
     return db('users')
     .insert(user,"id")
+    .then(users => users)
 }
 
 function remove(userid){
